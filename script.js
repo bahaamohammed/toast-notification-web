@@ -3,15 +3,15 @@ let successMsg = '<i class="fa fa-solid fa-circle-check"></i>Successfully submit
 let errorMsg = '<i class="fa fa-solid fa-circle-xmark"></i>Please fix the error';
 let warnMsg = '<i class="fa fa-solid fa-circle-exclamation"></i>Invalid input, check again';
 
-function showToast(button) {
+function showToast(type) {
     let msg = '';
     let toast = document.createElement('div');
 
     // Determine the type of toast based on the button clicked
-    if (button.classList.contains('toast-success')) {
+    if (type === 'success') {
         msg = successMsg;
         toast.classList.add('toast', 'success');
-    } else if (button.classList.contains('toast-warn')) {
+    } else if (type === 'warning') {
         msg = warnMsg;
         toast.classList.add('toast', 'warning');
     } else {
@@ -41,3 +41,14 @@ function showToast(button) {
         toast.remove();
     }, 6000);
 }
+
+// Add event listeners for the buttons
+document.querySelector('.toast-success').addEventListener('click', function() {
+    showToast('success');
+});
+document.querySelector('.toast-error').addEventListener('click', function() {
+    showToast('error');
+});
+document.querySelector('.toast-warn').addEventListener('click', function() {
+    showToast('warning');
+});

@@ -54,16 +54,24 @@ body{
     margin: 0 20px;
     font-size: 35px;
 }
-.toast.success i{
+.toast.success i:not(.close-toast){
     color: green;
 }
-.toast.error i{
+.toast.error i:not(.close-toast){
     color: red;
 }
-.toast.warning i{
+.toast.warning i:not(.close-toast){
     color: orange;
 }
-.toast::after{
+.toast .close-toast {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #424040;
+}
+.toast::after {
     content: '';
     position: absolute;
     left: 0;
